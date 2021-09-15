@@ -1,0 +1,49 @@
+@use "./functions" as fnc;
+
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --darkViolet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --gray: hsl(0, 0%, 75%);
+  --grayishViolet: hsl(257, 7%, 63%);
+  --verDarkBlue: hsl(255, 11%, 22%);
+  --veryDarkViolet: hsl(260, 8%, 14%);
+
+  --font: "Poppins", sans-serif;
+
+  --color-primary-100: var(--cyan);
+  --color-primary-200: var(--darkViolet);
+  --color-secondary: var(--red);
+  --color-neutral-100: var(--gray);
+  --color-neutral-200: var(--grayishViolet);
+  --color-neutral-300: var(--verDarkBlue);
+  --color-neutral-400: var(--veryDarkViolet);
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+  font-size: fnc.rem(18);
+
+  &.open {
+    overflow: hidden;
+  }
+}
+
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+}
