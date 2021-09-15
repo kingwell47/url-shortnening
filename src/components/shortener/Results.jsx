@@ -1,12 +1,10 @@
 import React from "react";
-
-function Results() {
+//THIS ISN'T WORKING for some reason! Try the map method!
+function Results(props) {
   return (
     <div className='results'>
-      <p className='results__original'>
-        https://longurllink.com/why-is-this-long/i-dont-know
-      </p>
-      <p className='results__shortened'>https://short.link</p>
+      <p className='results__original'>{props.data.originalUrl}</p>
+      <p className='results__shortened'>{props.data.shortUrl}</p>
       <button className='results__button_copy'>Copy</button>
     </div>
   );
