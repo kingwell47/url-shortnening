@@ -42,7 +42,7 @@ function Shortener() {
   };
 
   const pushResults = (resultData) => {
-    //TODO: make results into array, push results using this method
+    //TODO: make results into array, push results using this method then map them as children
   };
 
   async function getShortenenedUrl(originalUrl) {

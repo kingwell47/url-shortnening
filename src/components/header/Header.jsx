@@ -5,7 +5,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <header className='header'>
+    <header className='header container'>
       <Navbar />
       <Hero />
     </header>

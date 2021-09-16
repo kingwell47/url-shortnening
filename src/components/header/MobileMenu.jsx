@@ -2,7 +2,7 @@ import React from "react";
 
 function MobileMenu() {
   return (
-    <div className='header__mobile_menu'>
+    <div className='header__mobile_menu hide-for-desktop'>
       <ul className='header__mobile_links'>
         <li className='header__mobile_link'>
           <a href='/#'>Features</a>
@@ -14,12 +14,13 @@ function MobileMenu() {
           <a href='/#'>Resources</a>
         </li>
       </ul>
+      <hr />
       <ul className='header__mobile_cta'>
-        <li className='header__mobile_login'>
+        <li className='header__mobile_link'>
           <a href='/#'>Login</a>
         </li>
-        <li className='header__mobile_button'>
-          <button>Sign Up</button>
+        <li>
+          <button className='header__mobile_button'>Sign Up</button>
         </li>
       </ul>
     </div>

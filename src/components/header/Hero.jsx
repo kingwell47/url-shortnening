@@ -4,7 +4,11 @@ import heroImage from "../../images/illustration-working.svg";
 function Hero() {
   return (
     <div className='header__hero'>
-      <img src={heroImage} alt='' className='header__hero_image' />
+      <img
+        src={heroImage}
+        alt=''
+        className='header__hero_image hide-for-mobile'
+      />
       <div className='header__text_wrapper'>
         <h1 className='header__title'>More than just shorter links</h1>
         <p className='header__text'>
