@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import Results from "./Results";
+import "./Shortener.scss";
 
 function Shortener() {
   const [url, setUrl] = useState("");
@@ -38,7 +39,8 @@ function Shortener() {
     if (!validateUrl(url) || url === "") return handleError();
     currentUrl.current = formatUrl(url);
     getShortenenedUrl(currentUrl.current);
-    document.getElementById("shortener").reset();
+    document.getElementById("shortener_form").reset();
+    setUrl("");
   };
 
   const pushResults = (resultData) => {
@@ -57,20 +59,26 @@ function Shortener() {
   }
 
   return (
-    <>
-      <form className='shortener' id='shortener' onSubmit={handleSubmit}>
-        <input
-          type='text'
-          className='shortener__input'
-          placeholder='Shorten a link here...'
-          onChange={(e) => handleChange(e)}
-        />
-        <button type='submit' className='shortener__button'>
-          Shorten It!
-        </button>
-      </form>
+    <section className='shortener'>
+      <div className='shortener__wrapper'>
+        <form
+          className='shortener__form'
+          id='shortener_form'
+          onSubmit={handleSubmit}>
+          <input
+            type='text'
+            className='shortener__input'
+            placeholder='Shorten a link here...'
+            onChange={(e) => handleChange(e)}
+          />
+          <span className='shortener__error'>Please add a link</span>
+          <button type='submit' className='shortener__button'>
+            Shorten It!
+          </button>
+        </form>
+      </div>
       <Results data={results} />
-    </>
+    </section>
   );
 }
 

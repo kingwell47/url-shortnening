@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import "./Features.scss";
 
 function Features() {
   return (

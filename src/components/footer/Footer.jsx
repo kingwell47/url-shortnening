@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer className='footer'>
       <img src={logo} alt='Shortly' className='footer__logo' />
+      <h4 className='footer__links_title'>Features</h4>
       <ul className='footer__links'>
-        <h4 className='footer__links_title'>Features</h4>
         <li className='footer_link'>
           <a href='/#'>Link Shortening</a>
         </li>
@@ -17,8 +17,8 @@ function Footer() {
           <a href='/#'>Analytics</a>
         </li>
       </ul>
+      <h4 className='footer__links_title'>Resources</h4>
       <ul className='footer__links'>
-        <h4 className='footer__links_title'>Resources</h4>
         <li className='footer_link'>
           <a href='/#'>Blog</a>
         </li>
@@ -29,8 +29,8 @@ function Footer() {
           <a href='/#'>Support</a>
         </li>
       </ul>
+      <h4 className='footer__links_title'>Company</h4>
       <ul className='footer__links'>
-        <h4 className='footer__links_title'>Company</h4>
         <li className='footer_link'>
           <a href='/#'>About</a>
         </li>

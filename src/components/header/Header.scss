@@ -3,9 +3,11 @@
 .header {
   margin-top: fnc.rem(40);
   position: relative;
+  padding-bottom: fnc.rem(168);
   .navbar {
     display: flex;
     justify-content: space-between;
+    margin-bottom: fnc.rem(23);
   }
 
   .logo-wrapper {
@@ -99,11 +101,11 @@
       background-color: var(--color-neutral-200);
       height: fnc.rem(3);
       width: fnc.rem(24);
-      transform-origin: fnc.rem(2.5);
+      transform-origin: fnc.rem(0);
       transition: all 350ms ease-in-out;
 
       &:not(:last-child) {
-        margin-bottom: fnc.rem(4);
+        margin-bottom: fnc.rem(6);
       }
     }
 
@@ -166,17 +168,32 @@
   }
 
   &__hero_image {
+    max-width: 156.5%;
+    height: auto;
   }
 
   &__text_wrapper {
+    margin-top: fnc.rem(45);
+    text-align: center;
   }
 
   &__title {
+    margin-bottom: fnc.rem(27);
+    font-size: fnc.rem(40);
+    color: var(--color-neutral-300);
   }
 
   &__text {
+    margin-bottom: fnc.rem(33);
+    color: var(--color-neutral-200);
+    line-height: 1.5;
   }
 
   &__button {
+    @extend .header__desktop_button;
+    font-size: fnc.rem(18);
+    padding-left: fnc.rem(42);
+    padding-right: fnc.rem(42);
+    border-radius: fnc.rem(28);
   }
 }

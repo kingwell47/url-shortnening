@@ -1,9 +1,19 @@
 import React, { useState } from "react";
+import { useTransition, animated } from "react-spring";
 import MobileMenu from "./MobileMenu";
 import logo from "../../images/logo.svg";
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
+
+  const transitions = useTransition(clicked, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    reverse: clicked,
+    delay: 0,
+    duration: 150,
+  });
 
   const handleClick = () => {
     document.querySelector("body").classList.toggle("open");
@@ -26,7 +36,15 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      {clicked && <MobileMenu />}
+      {transitions(
+        (styles, item) =>
+          item && (
+            <animated.div style={styles}>
+              <MobileMenu />
+            </animated.div>
+          )
+      )}
+      {/* {clicked && <MobileMenu />} */}
       <button
         className={
           clicked
@@ -35,7 +53,7 @@ function Navbar() {
         }
         title='mobile menu'
         aria-label='open-menu'
-        aria-expanded='false'
+        aria-expanded={clicked}
         onClick={() => handleClick()}>
         <span></span>
         <span></span>

@@ -1,0 +1,48 @@
+@use "../../functions" as fnc;
+
+.shortener {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-neutral-100);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-200);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+  }
+
+  &__error {
+  }
+
+  &__button {
+    &.active {
+    }
+  }
+}
+
+.results {
+  &__original {
+  }
+
+  &__shortenened {
+  }
+
+  &__button_copy {
+    &.active {
+    }
+  }
+}
