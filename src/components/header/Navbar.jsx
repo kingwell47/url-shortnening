@@ -21,7 +21,7 @@ function Navbar() {
   };
 
   return (
-    <nav className='navbar limit-wrapper'>
+    <nav className='navbar container'>
       <div className='logo-wrapper'>
         <img src={logo} alt='Shortly' className='header__logo' />
         <ul className='header__desktop_links hide-for-mobile'>

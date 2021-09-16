@@ -76,6 +76,7 @@ a:active {
 .limit-wrapper {
   max-width: fnc.rem(1440);
   margin: 0 auto;
+  overflow: hidden;
 }
 
 ul {

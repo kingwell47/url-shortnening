@@ -2,9 +2,11 @@
 
 .shortener {
   display: flex;
+  gap: fnc.rem(24);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   background-color: var(--color-neutral-100);
 
   &__wrapper {
@@ -13,6 +15,9 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-primary-200);
+    border-radius: fnc.rem(10);
+    min-width: fnc.rem(327);
+    padding: fnc.rem(24);
   }
 
   &__form {
@@ -20,29 +25,90 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .input_wrapper {
+    width: 100%;
   }
 
   &__input {
+    width: 100%;
+    height: fnc.rem(48);
+    border-radius: fnc.rem(5);
+    border: none;
+    font: inherit;
+    padding: 0 1rem;
   }
 
   &__error {
+    color: var(--color-secondary);
+    font-size: fnc.rem(12);
+    font-style: italic;
+    align-self: flex-start;
   }
 
   &__button {
+    width: 100%;
+    height: fnc.rem(48);
+    background-color: var(--color-primary-100);
+    border-radius: fnc.rem(5);
+    border: none;
+    font: inherit;
+    font-weight: 700;
+    color: var(--white);
     &.active {
     }
   }
 }
 
 .results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white);
+  min-width: fnc.rem(327);
+  min-height: fnc.rem(155);
+  border-radius: fnc.rem(10);
+  padding-top: fnc.rem(24);
+  padding-bottom: fnc.rem(24);
+
   &__original {
+    padding-left: fnc.rem(24);
+    padding-right: fnc.rem(24);
+    word-wrap: break-word;
+    word-break: break-all;
   }
 
-  &__shortenened {
+  hr {
+    border: none;
+    width: 100%;
+    height: fnc.rem(1);
+    background-color: var(--color-neutral-100);
+    margin: fnc.rem(15) 0;
+  }
+
+  &__shortened {
+    display: flex;
+    flex-direction: column;
+    gap: fnc.rem(15);
+    padding-left: fnc.rem(24);
+    padding-right: fnc.rem(24);
+    color: var(--color-primary-100);
   }
 
   &__button_copy {
+    background-color: var(--color-primary-100);
+    border: none;
+    font: inherit;
+    font-weight: 700;
+    color: var(--white);
+    padding: fnc.rem(15) 0;
+    border-radius: fnc.rem(5);
+    transition: background-color 250ms ease-in;
     &.active {
+      background-color: var(--color-primary-200);
     }
   }
 }

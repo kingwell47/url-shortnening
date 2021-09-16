@@ -3,7 +3,7 @@ import heroImage from "../../images/illustration-working.svg";
 
 function Hero() {
   return (
-    <div className='header__hero limit-wrapper'>
+    <div className='header__hero container'>
       <img src={heroImage} alt='' className='header__hero_image' />
       <div className='header__text_wrapper'>
         <h1 className='header__title'>More than just shorter links</h1>

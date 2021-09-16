@@ -4,10 +4,9 @@ import "./Shortener.scss";
 
 function Shortener() {
   const [url, setUrl] = useState("");
-  const [results, setResults] = useState({
-    originalUrl: "",
-    shortUrl: "",
-  });
+  const [error, setError] = useState(false);
+  const [showingResults, setShowingResults] = useState(false);
+  const results = useRef([]);
   const currentUrl = useRef("");
 
   const handleChange = (e) => {
@@ -31,6 +30,7 @@ function Shortener() {
   };
 
   const handleError = () => {
+    setError(true);
     console.error("Please add a link");
   };
 
@@ -40,11 +40,8 @@ function Shortener() {
     currentUrl.current = formatUrl(url);
     getShortenenedUrl(currentUrl.current);
     document.getElementById("shortener_form").reset();
+    setError(false);
     setUrl("");
-  };
-
-  const pushResults = (resultData) => {
-    //TODO: make results into array, push results using this method then map them as children
   };
 
   async function getShortenenedUrl(originalUrl) {
@@ -52,32 +49,39 @@ function Shortener() {
       "https://api.shrtco.de/v2/shorten?url=" + originalUrl
     );
     const data = await response.json();
-    setResults({
+    const dataObj = {
       originalUrl: "https://" + originalUrl,
       shortUrl: data.result.full_short_link2,
-    });
+    };
+    results.current.unshift(dataObj);
+    setShowingResults(true);
   }
 
   return (
-    <section className='shortener'>
+    <section className='shortener container'>
       <div className='shortener__wrapper'>
         <form
           className='shortener__form'
           id='shortener_form'
           onSubmit={handleSubmit}>
-          <input
-            type='text'
-            className='shortener__input'
-            placeholder='Shorten a link here...'
-            onChange={(e) => handleChange(e)}
-          />
-          <span className='shortener__error'>Please add a link</span>
+          <div className='input_wrapper'>
+            <input
+              type='text'
+              className='shortener__input'
+              placeholder='Shorten a link here...'
+              onChange={(e) => handleChange(e)}
+            />
+            {error && (
+              <span className='shortener__error'>Please add a link</span>
+            )}
+          </div>
           <button type='submit' className='shortener__button'>
             Shorten It!
           </button>
         </form>
       </div>
-      <Results data={results} />
+      {showingResults &&
+        results.current.map((items) => <Results data={items} key={items} />)}
     </section>
   );
 }

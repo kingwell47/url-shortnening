@@ -5,7 +5,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <header className='header container'>
+    <header className='header limit-wrapper'>
       <Navbar />
       <Hero />
     </header>

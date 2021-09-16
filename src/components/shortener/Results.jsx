@@ -9,17 +9,18 @@ function Results(props) {
 
   return (
     <div className='results'>
-      <p className='results__original'>
-        {props.data.originalUrl}https://kingwell47.com
-      </p>
+      <p className='results__original'>{props.data.originalUrl}</p>
+      <hr />
       <p className='results__shortened'>
-        {props.data.shortUrl}https://9qr.de/Iik18e
+        {props.data.shortUrl}
+        <button
+          className={
+            copied ? "results__button_copy active" : "results__button_copy"
+          }
+          onClick={() => copyToClipboard(props.data.shortUrl)}>
+          {copied ? "Copied!" : "Copy"}
+        </button>
       </p>
-      <button
-        className='results__button_copy'
-        onClick={() => copyToClipboard(props.data.shortUrl)}>
-        {copied ? "Copied!" : "Copy"}
-      </button>
     </div>
   );
 }
