@@ -5,7 +5,8 @@ import "./Shortener.scss";
 
 function Shortener() {
   const [url, setUrl] = useState("");
-  const [error, setError] = useState(false);
+  const [errorStatus, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [showingResults, setShowingResults] = useState(false);
   const [results, setResults] = useState([]);
   const currentUrl = useRef("");
@@ -13,7 +14,7 @@ function Shortener() {
   const handleChange = (e) => {
     if (e.target.value === undefined) {
       e.target.value = "";
-      return setError(true);
+      return handleError();
     }
     setUrl(e.target.value);
     setError(false);
@@ -25,6 +26,18 @@ function Shortener() {
     return urlRegex.test(originalUrl);
   };
 
+  const handleError = (errMessage) => {
+    setError(true);
+    if (errMessage === undefined) return setErrorMessage("Please add a link");
+    setErrorMessage(errMessage);
+  };
+
+  const handleSuccess = (resObj) => {
+    setResults([...results, resObj]);
+    setShowingResults(true);
+    setError(false);
+  };
+
   const formatUrl = (originalUrl) => {
     const formatUrlRegex = /((http(s)?)?:\/\/)?(www\.)?/;
     return originalUrl.replace(formatUrlRegex, "");
@@ -32,11 +45,10 @@ function Shortener() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateUrl(url) || url === "") return setError(true);
+    if (!validateUrl(url) || url === "") return handleError();
     currentUrl.current = formatUrl(url);
     getShortenenedUrl(currentUrl.current);
     document.getElementById("shortener_form").reset();
-    setError(false);
     setUrl("");
   };
 
@@ -44,13 +56,15 @@ function Shortener() {
     const response = await fetch(
       "https://api.shrtco.de/v2/shorten?url=" + originalUrl
     );
-    const data = await response.json();
-    const dataObj = {
-      originalUrl: "https://" + originalUrl,
-      shortUrl: data.result.full_short_link2,
-    };
-    setResults([...results, dataObj]);
-    setShowingResults(true);
+    const { ok, error, result } = await response.json();
+    if (ok) {
+      return handleSuccess({
+        originalUrl: "https://" + originalUrl,
+        shortUrl: result.full_short_link2,
+      });
+    } else {
+      return handleError(error);
+    }
   }
 
   return (
@@ -63,11 +77,15 @@ function Shortener() {
           <div className='input_wrapper'>
             <input
               type='text'
-              className={error ? "shortener__input error" : "shortener__input"}
+              className={
+                errorStatus ? "shortener__input error" : "shortener__input"
+              }
               placeholder='Shorten a link here...'
               onChange={(e) => handleChange(e)}
             />
-            {error && <div className='shortener__error'>Please add a link</div>}
+            {errorStatus && (
+              <div className='shortener__error'>{errorMessage}</div>
+            )}
           </div>
           <button type='submit' className='shortener__button'>
             Shorten It!

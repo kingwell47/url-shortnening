@@ -1,0 +1,42 @@
+@use "../../functions" as fnc;
+
+.footer {
+  background-color: var(--color-neutral-400);
+  text-align: center;
+  padding: fnc.rem(50) 0;
+  &__logo {
+  }
+
+  .links_wrapper {
+    margin-top: fnc.rem(42);
+  }
+  &__links_title {
+    margin-bottom: fnc.rem(28);
+    font-size: fnc.rem(16);
+    color: var(--white);
+  }
+  &__links {
+    * + * {
+      margin-top: fnc.rem(16);
+    }
+  }
+
+  &__link {
+    a {
+      color: var(--color-neutral-100);
+      font-size: fnc.rem(15);
+    }
+  }
+
+  &__social_links {
+    margin-top: fnc.rem(50);
+  }
+
+  &__social_link {
+    display: inline;
+
+    &:not(:last-child) {
+      margin-right: fnc.rem(24);
+    }
+  }
+}

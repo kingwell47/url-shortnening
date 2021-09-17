@@ -56,8 +56,8 @@
     outline-color: var(--color-primary-100);
 
     &.error {
-      // border: 2px solid var(--color-secondary);
-      outline: var(--color-secondary);
+      border: 2px solid var(--color-secondary);
+      outline-color: var(--color-secondary);
       &::placeholder {
         color: var(--color-secondary);
       }
@@ -80,6 +80,7 @@
     font: inherit;
     font-weight: 700;
     color: var(--white);
+    cursor: pointer;
     &.active {
     }
   }
@@ -154,6 +155,7 @@
     padding: fnc.rem(12) 0 fnc.rem(12);
     border-radius: fnc.rem(5);
     transition: background-color 250ms ease-in;
+    cursor: pointer;
     &.active {
       background-color: var(--color-primary-200);
     }

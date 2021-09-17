@@ -29,9 +29,10 @@
     margin-top: fnc.rem(90);
     background-color: var(--white);
     border-radius: fnc.rem(5);
-    padding-left: fnc.rem(26);
-    padding-right: fnc.rem(26);
-    padding-bottom: fnc.rem(40);
+    padding: 0 fnc.rem(28) fnc.rem(40);
+    // padding-left: fnc.rem(26);
+    // padding-right: fnc.rem(26);
+    // padding-bottom: fnc.rem(40);
     position: relative;
 
     &:not(:last-child)::after {
@@ -64,17 +65,37 @@
   &__card_text {
     margin-top: fnc.rem(28);
     text-align: center;
-    font-size: fnc.rem(16);
+    font-size: fnc.rem(15);
     color: var(--color-neutral-200);
     line-height: 1.6;
   }
 
   &__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: fnc.rem(300);
+    background-color: var(--color-primary-200);
+    background-image: url(../../images/bg-boost-mobile.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
   }
 
   &__cta_title {
+    color: var(--white);
   }
 
   &__cta_button {
+    border: none;
+    border-radius: fnc.rem(28);
+    background-color: var(--color-primary-100);
+    margin-top: fnc.rem(16);
+    font-family: inherit;
+    font-size: fnc.rem(18);
+    color: var(--white);
+    font-weight: 700;
+    padding: fnc.rem(13) fnc.rem(42);
+    cursor: pointer;
   }
 }

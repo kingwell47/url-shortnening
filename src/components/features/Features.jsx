@@ -60,7 +60,7 @@ function Features() {
           );
         })}
       </section>
-      <section className='features__cta'>
+      <section className='features__cta container'>
         <h2 className='features__cta_title'>Boost your links today</h2>
         <button className='features__cta_button'>Get Started</button>
       </section>

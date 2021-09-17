@@ -178,27 +178,26 @@
   }
 
   &__text_wrapper {
-    margin-top: fnc.rem(45);
+    padding-top: fnc.rem(42);
     text-align: center;
   }
 
   &__title {
-    margin-bottom: fnc.rem(27);
     font-size: fnc.rem(40);
     color: var(--color-neutral-300);
   }
 
   &__text {
-    margin-bottom: fnc.rem(33);
+    margin-top: fnc.rem(16);
     color: var(--color-neutral-200);
     line-height: 1.5;
   }
 
   &__button {
     @extend .header__desktop_button;
+    margin-top: fnc.rem(33);
     font-size: fnc.rem(18);
-    padding-left: fnc.rem(42);
-    padding-right: fnc.rem(42);
+    padding: fnc.rem(15) fnc.rem(42);
     border-radius: fnc.rem(28);
   }
 }
