@@ -63,6 +63,12 @@
   }
 }
 
+.results_wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: fnc.rem(24);
+}
+
 .results {
   display: flex;
   flex-direction: column;

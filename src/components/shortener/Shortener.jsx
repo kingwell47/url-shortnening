@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTransition, animated } from "react-spring";
 import Results from "./Results";
 import "./Shortener.scss";
 
@@ -6,8 +7,16 @@ function Shortener() {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const [showingResults, setShowingResults] = useState(false);
-  const results = useRef([]);
+  const [results, setResults] = useState([]);
   const currentUrl = useRef("");
+
+  const transitions = useTransition(results, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    delay: 0,
+    duration: 150,
+  });
 
   const handleChange = (e) => {
     if (e.target.value === undefined) {
@@ -24,12 +33,12 @@ function Shortener() {
   };
 
   const formatUrl = (originalUrl) => {
-    //TODO: format URL into this string format (url=example.org/very/long/link.html)
     const formatUrlRegex = /((http(s)?)?:\/\/)?(www\.)?/;
     return originalUrl.replace(formatUrlRegex, "");
   };
 
   const handleError = () => {
+    //TODO: trigger input field error mode
     setError(true);
     console.error("Please add a link");
   };
@@ -53,7 +62,7 @@ function Shortener() {
       originalUrl: "https://" + originalUrl,
       shortUrl: data.result.full_short_link2,
     };
-    results.current.unshift(dataObj);
+    setResults([...results, dataObj]);
     setShowingResults(true);
   }
 
@@ -80,8 +89,10 @@ function Shortener() {
           </button>
         </form>
       </div>
-      {showingResults &&
-        results.current.map((items) => <Results data={items} key={items} />)}
+      <div className='results_wrapper'>
+        {showingResults &&
+          results.map((data, index) => <Results data={data} key={index} />)}
+      </div>
     </section>
   );
 }
