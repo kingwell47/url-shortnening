@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useTransition, animated } from "react-spring";
+
 import Results from "./Results";
 import "./Shortener.scss";
 
@@ -9,14 +9,6 @@ function Shortener() {
   const [showingResults, setShowingResults] = useState(false);
   const [results, setResults] = useState([]);
   const currentUrl = useRef("");
-
-  const transitions = useTransition(results, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    delay: 0,
-    duration: 150,
-  });
 
   const handleChange = (e) => {
     if (e.target.value === undefined) {
@@ -76,7 +68,7 @@ function Shortener() {
           <div className='input_wrapper'>
             <input
               type='text'
-              className='shortener__input'
+              className={error ? "shortener__input error" : "shortener__input"}
               placeholder='Shorten a link here...'
               onChange={(e) => handleChange(e)}
             />
