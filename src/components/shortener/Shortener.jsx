@@ -13,9 +13,10 @@ function Shortener() {
   const handleChange = (e) => {
     if (e.target.value === undefined) {
       e.target.value = "";
-      return handleError();
+      return setError(true);
     }
     setUrl(e.target.value);
+    setError(false);
   };
 
   const validateUrl = (originalUrl) => {
@@ -29,15 +30,9 @@ function Shortener() {
     return originalUrl.replace(formatUrlRegex, "");
   };
 
-  const handleError = () => {
-    //TODO: trigger input field error mode
-    setError(true);
-    console.error("Please add a link");
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateUrl(url) || url === "") return handleError();
+    if (!validateUrl(url) || url === "") return setError(true);
     currentUrl.current = formatUrl(url);
     getShortenenedUrl(currentUrl.current);
     document.getElementById("shortener_form").reset();
@@ -72,9 +67,7 @@ function Shortener() {
               placeholder='Shorten a link here...'
               onChange={(e) => handleChange(e)}
             />
-            {error && (
-              <span className='shortener__error'>Please add a link</span>
-            )}
+            {error && <div className='shortener__error'>Please add a link</div>}
           </div>
           <button type='submit' className='shortener__button'>
             Shorten It!

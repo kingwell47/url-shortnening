@@ -1,5 +1,80 @@
 @use "../../functions" as fnc;
 
 .features {
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-neutral-250);
+  padding-top: fnc.rem(95);
+  padding-bottom: fnc.rem(80);
+  // padding-top: fnc.rem(172);
+
+  &__text_wrapper {
+  }
+  &__title {
+    text-align: center;
+    color: var(--color-neutral-300);
+  }
+
+  &__title_text {
+    margin-top: fnc.rem(30);
+    text-align: center;
+    font-size: fnc.rem(16);
+    color: var(--color-neutral-200);
+    line-height: 1.6;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: fnc.rem(90);
+    background-color: var(--white);
+    border-radius: fnc.rem(5);
+    padding-left: fnc.rem(26);
+    padding-right: fnc.rem(26);
+    padding-bottom: fnc.rem(40);
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      background-color: var(--color-primary-100);
+      width: fnc.rem(8);
+      height: fnc.rem(90);
+      position: absolute;
+      bottom: fnc.rem(-90);
+      z-index: 0;
+    }
+  }
+
+  &__card_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: fnc.rem(-44);
+    background-color: var(--color-primary-200);
+    border-radius: 50%;
+    width: fnc.rem(88);
+    height: fnc.rem(88);
+  }
+
+  &__card_title {
+    margin-top: fnc.rem(36);
+    color: var(--color-neutral-300);
+  }
+
+  &__card_text {
+    margin-top: fnc.rem(28);
+    text-align: center;
+    font-size: fnc.rem(16);
+    color: var(--color-neutral-200);
+    line-height: 1.6;
+  }
+
+  &__cta {
+  }
+
+  &__cta_title {
+  }
+
+  &__cta_button {
+  }
 }
