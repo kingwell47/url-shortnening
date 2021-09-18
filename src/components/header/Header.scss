@@ -3,8 +3,8 @@
 .header {
   margin-top: fnc.rem(40);
   position: relative;
-  // padding-bottom: fnc.rem(88);
   padding-bottom: fnc.rem(168);
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -145,7 +145,7 @@
     }
 
     a {
-      font-size: fnc.rem(14);
+      font-size: fnc.rem(15);
       font-weight: 700;
       color: var(--color-neutral-200);
     }
@@ -170,27 +170,61 @@
   }
 
   &__hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include fnc.breakpoint-up(medium) {
+      padding-top: fnc.rem(29);
+    }
+
+    @include fnc.breakpoint-up(large) {
+      padding-top: fnc.rem(58);
+      flex-direction: row;
+      gap: fnc.rem(46);
+    }
   }
 
   &__hero_image {
+    align-self: flex-start;
     max-width: 156.5%;
     height: auto;
+
+    @include fnc.breakpoint-up(medium) {
+      align-self: auto;
+    }
+
+    @include fnc.breakpoint-up(large) {
+      order: 2;
+      object-position: fnc.rem(126);
+    }
   }
 
   &__text_wrapper {
     padding-top: fnc.rem(42);
     text-align: center;
+
+    @include fnc.breakpoint-up(large) {
+      padding-top: 0;
+      text-align: left;
+      order: 1;
+    }
   }
 
   &__title {
-    font-size: fnc.rem(40);
+    font-size: clamp(fnc.rem(40), 5vw, fnc.rem(80));
     color: var(--color-neutral-300);
   }
 
   &__text {
     margin-top: fnc.rem(16);
+    font-size: clamp(fnc.rem(18), 1.4vw, fnc.rem(22));
     color: var(--color-neutral-200);
     line-height: 1.5;
+    @include fnc.breakpoint-up(large) {
+      margin-top: fnc.rem(2);
+    }
   }
 
   &__button {

@@ -28,8 +28,16 @@
     background-color: var(--color-primary-200);
     border-radius: fnc.rem(10);
     min-width: fnc.rem(327);
+    width: 100%;
     padding: fnc.rem(24);
     z-index: 2;
+
+    @include fnc.breakpoint-up(large) {
+      padding: fnc.rem(52) fnc.rem(64);
+      background-image: url(../../images/bg-shorten-desktop.svg);
+      background-position: top center;
+      background-size: cover;
+    }
   }
 
   &__form {
@@ -39,6 +47,10 @@
     align-items: center;
     gap: 1rem;
     width: 100%;
+
+    @include fnc.breakpoint-up(large) {
+      flex-direction: row;
+    }
   }
 
   .input_wrapper {
@@ -62,6 +74,10 @@
         color: var(--color-secondary);
       }
     }
+
+    @include fnc.breakpoint-up(large) {
+      height: fnc.rem(62);
+    }
   }
 
   &__error {
@@ -82,6 +98,10 @@
     color: var(--white);
     cursor: pointer;
     &.active {
+    }
+    @include fnc.breakpoint-up(large) {
+      height: fnc.rem(62);
+      max-width: fnc.rem(188);
     }
   }
 }

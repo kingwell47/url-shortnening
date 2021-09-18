@@ -1,6 +1,10 @@
 @use "../../functions" as fnc;
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--color-neutral-400);
   text-align: center;
   padding: fnc.rem(50) 0;

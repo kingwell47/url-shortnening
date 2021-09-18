@@ -7,8 +7,14 @@ function Shortener() {
   const [url, setUrl] = useState("");
   const [errorStatus, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [showingResults, setShowingResults] = useState(false);
-  const [results, setResults] = useState([]);
+  const [showingResults, setShowingResults] = useState(true);
+
+  const [results, setResults] = useState([
+    {
+      originalUrl: "kingwell47.com",
+      shortUrl: "shortened.io",
+    },
+  ]);
   const currentUrl = useRef("");
 
   const handleChange = (e) => {
