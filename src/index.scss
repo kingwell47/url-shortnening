@@ -73,12 +73,19 @@ a:active {
 
 .container {
   padding: 0 fnc.rem(24);
+
+  @include fnc.breakpoint-up(large) {
+    padding: 0;
+  }
 }
 
 .limit-wrapper {
   max-width: fnc.rem(1440);
   margin: 0 auto;
-  overflow: hidden;
+
+  @include fnc.breakpoint-down(small) {
+    overflow: hidden;
+  }
 }
 
 ul {
@@ -97,4 +104,9 @@ p {
 
 img {
   display: block;
+}
+
+.App {
+  width: min(100vw, 1440px);
+  overflow: hidden;
 }

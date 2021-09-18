@@ -89,9 +89,9 @@ function Shortener() {
               placeholder='Shorten a link here...'
               onChange={(e) => handleChange(e)}
             />
-            {errorStatus && (
-              <div className='shortener__error'>{errorMessage}</div>
-            )}
+            <div className='shortener__error'>
+              {errorStatus ? errorMessage : ""}
+            </div>
           </div>
           <button type='submit' className='shortener__button'>
             Shorten It!

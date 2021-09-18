@@ -1,6 +1,7 @@
 @use "../../functions" as fnc;
 
 .features {
+  width: 100%;
   background-color: var(--color-neutral-250);
   padding-top: fnc.rem(95);
   padding-bottom: fnc.rem(80);

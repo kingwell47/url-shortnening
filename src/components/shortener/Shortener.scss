@@ -27,8 +27,8 @@
     background-repeat: no-repeat;
     background-color: var(--color-primary-200);
     border-radius: fnc.rem(10);
-    min-width: fnc.rem(327);
-    width: 100%;
+    // min-width: fnc.rem(327);
+    width: min(100%, 69.375rem);
     padding: fnc.rem(24);
     z-index: 2;
 
@@ -55,6 +55,7 @@
 
   .input_wrapper {
     width: 100%;
+    position: relative;
   }
 
   &__input {
@@ -63,9 +64,18 @@
     border-radius: fnc.rem(5);
     border: none;
     font: inherit;
+    font-size: clamp(fnc.rem(18), 1.6vw, fnc.rem(22));
     padding: 0 1rem;
     transition: all 250 ease-in;
     outline-color: var(--color-primary-100);
+
+    @include fnc.breakpoint-up(large) {
+      border-radius: fnc.rem(10);
+    }
+
+    &::placeholder {
+      color: var(--color-neutral-100);
+    }
 
     &.error {
       border: 2px solid var(--color-secondary);
@@ -76,11 +86,14 @@
     }
 
     @include fnc.breakpoint-up(large) {
+      padding: 0 fnc.rem(33);
       height: fnc.rem(62);
     }
   }
 
   &__error {
+    position: absolute;
+    margin-top: fnc.rem(5);
     color: var(--color-secondary);
     font-size: fnc.rem(12);
     font-style: italic;
@@ -102,6 +115,7 @@
     @include fnc.breakpoint-up(large) {
       height: fnc.rem(62);
       max-width: fnc.rem(188);
+      border-radius: fnc.rem(10);
     }
   }
 }
@@ -109,6 +123,7 @@
 .results_wrapper {
   display: flex;
   flex-direction: column-reverse;
+  width: min(100%, 69.375rem);
 }
 
 .results {
@@ -139,12 +154,21 @@
     }
   }
 
+  @include fnc.breakpoint-up(large) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    min-height: fnc.rem(72);
+  }
+
   &__original {
+    flex: 2;
     padding-left: fnc.rem(24);
     padding-right: fnc.rem(24);
     word-wrap: break-word;
     word-break: break-all;
-    font-size: fnc.rem(16);
+    font-size: clamp(fnc.rem(16), 1.3vw, fnc.rem(18));
   }
 
   hr {
@@ -153,20 +177,32 @@
     height: fnc.rem(1);
     background-color: var(--color-neutral-100);
     margin: fnc.rem(15) 0;
+
+    @include fnc.breakpoint-up(large) {
+      display: none;
+    }
   }
 
   &__shortened {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: fnc.rem(15);
     padding-left: fnc.rem(24);
     padding-right: fnc.rem(24);
-    font-size: fnc.rem(16);
+    font-size: clamp(fnc.rem(16), 1.3vw, fnc.rem(18));
     color: var(--color-primary-100);
+
+    @include fnc.breakpoint-up(large) {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 
   &__button_copy {
     background-color: var(--color-primary-100);
+    min-width: fnc.rem(103);
     border: none;
     font: inherit;
     font-size: fnc.rem(16);
