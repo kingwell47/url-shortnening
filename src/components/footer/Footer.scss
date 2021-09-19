@@ -64,6 +64,11 @@
     a {
       color: var(--color-neutral-100);
       font-size: fnc.rem(15);
+      transition: color 250ms ease-in;
+
+      &:hover {
+        color: var(--color-primary-100);
+      }
     }
   }
 
@@ -76,9 +81,18 @@
 
   &__social_link {
     display: inline;
+    &:hover {
+      svg path {
+        fill: var(--color-primary-100);
+      }
+    }
 
     &:not(:last-child) {
       margin-right: fnc.rem(24);
+    }
+
+    svg path {
+      transition: fill 250ms ease-in;
     }
   }
 }

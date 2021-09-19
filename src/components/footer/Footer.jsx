@@ -54,7 +54,9 @@ function Footer() {
   ];
   return (
     <footer className='footer container'>
-      <img src={logo} alt='Shortly' className='footer__logo' />
+      <a href='/#'>
+        <img src={logo} alt='Shortly' className='footer__logo' />
+      </a>
       <div className='footer__links_wrap'>
         <div className='footer__text_links'>
           {links.map((item, index) => {

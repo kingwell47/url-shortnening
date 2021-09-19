@@ -210,7 +210,6 @@
     color: var(--white);
     padding: fnc.rem(12) 0 fnc.rem(12);
     border-radius: fnc.rem(5);
-    transition: background-color 250ms ease-in;
     cursor: pointer;
     &.active {
       background-color: var(--color-primary-200);

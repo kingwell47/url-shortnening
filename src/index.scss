@@ -21,6 +21,7 @@
   --color-neutral-250: var(--newGrayishViolet);
   --color-neutral-300: var(--verDarkBlue);
   --color-neutral-400: var(--veryDarkViolet);
+  --color-hover: hsl(179, 56%, 75%);
 }
 
 html {
@@ -109,4 +110,11 @@ img {
 .App {
   width: min(100vw, 1440px);
   overflow: hidden;
+}
+
+button {
+  transition: all 250ms ease-in;
+  &:hover {
+    background-color: var(--color-hover);
+  }
 }

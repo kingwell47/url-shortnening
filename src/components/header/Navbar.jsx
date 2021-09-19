@@ -23,7 +23,9 @@ function Navbar() {
   return (
     <nav className='navbar container'>
       <div className='logo-wrapper'>
-        <img src={logo} alt='Shortly' className='header__logo' />
+        <a href='/#'>
+          <img src={logo} alt='Shortly' className='header__logo' />
+        </a>
         <ul className='header__desktop_links hide-for-mobile'>
           <li className='header__desktop_link'>
             <a href='/#'>Features</a>
