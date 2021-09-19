@@ -226,14 +226,17 @@
   }
 
   &__text {
-    margin: 0 auto;
     max-width: fnc.rem(562);
+    margin-left: auto;
+    margin-right: auto;
     margin-top: fnc.rem(16);
     font-size: clamp(fnc.rem(18), 1.6vw, fnc.rem(22));
     color: var(--color-neutral-200);
     line-height: 1.5;
     @include fnc.breakpoint-up(large) {
       margin-top: fnc.rem(2);
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 

@@ -137,8 +137,12 @@
   }
 
   &__card_title {
+    text-align: center;
     margin-top: fnc.rem(36);
     color: var(--color-neutral-300);
+    @include fnc.breakpoint-up(medium) {
+      text-align: left;
+    }
   }
 
   &__card_text {
@@ -158,22 +162,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: fnc.rem(16);
     min-height: fnc.rem(300);
     background-color: var(--color-primary-200);
     background-image: url(../../images/bg-boost-mobile.svg);
     background-position: top right;
     background-repeat: no-repeat;
+
+    @include fnc.breakpoint-up(medium) {
+      background-image: url(../../images/bg-boost-desktop.svg);
+      min-height: fnc.rem(250);
+    }
+    @include fnc.breakpoint-up(large) {
+      gap: fnc.rem(24);
+    }
   }
 
   &__cta_title {
+    text-align: center;
     color: var(--white);
+    font-size: clamp(fnc.rem(27), 3vw, fnc.rem(38));
   }
 
   &__cta_button {
     border: none;
     border-radius: fnc.rem(28);
     background-color: var(--color-primary-100);
-    margin-top: fnc.rem(16);
     font-family: inherit;
     font-size: fnc.rem(18);
     color: var(--white);

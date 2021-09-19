@@ -55,37 +55,40 @@ function Footer() {
   return (
     <footer className='footer container'>
       <img src={logo} alt='Shortly' className='footer__logo' />
-      {links.map((item, index) => {
-        return (
-          <div className='links_wrapper' key={index}>
-            <h4 className='footer__links_title'>{item.title}</h4>
-            <ul className='footer__links'>
-              {item.content.map((links, index) => {
-                return (
-                  <li className='footer__link' key={index}>
-                    <a href='/#'>{links}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })}
-
-      <ul className='footer__social_links'>
-        <li className='footer__social_link'>
-          <a href='/#'>{icons.facebook}</a>
-        </li>
-        <li className='footer__social_link'>
-          <a href='/#'>{icons.twitter}</a>
-        </li>
-        <li className='footer__social_link'>
-          <a href='/#'>{icons.pinterest}</a>
-        </li>
-        <li className='footer__social_link'>
-          <a href='/#'>{icons.instagram}</a>
-        </li>
-      </ul>
+      <div className='footer__links_wrap'>
+        <div className='footer__text_links'>
+          {links.map((item, index) => {
+            return (
+              <div className='links_wrapper' key={index}>
+                <h4 className='footer__links_title'>{item.title}</h4>
+                <ul className='footer__links'>
+                  {item.content.map((links, index) => {
+                    return (
+                      <li className='footer__link' key={index}>
+                        <a href='/#'>{links}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+        <ul className='footer__social_links'>
+          <li className='footer__social_link'>
+            <a href='/#'>{icons.facebook}</a>
+          </li>
+          <li className='footer__social_link'>
+            <a href='/#'>{icons.twitter}</a>
+          </li>
+          <li className='footer__social_link'>
+            <a href='/#'>{icons.pinterest}</a>
+          </li>
+          <li className='footer__social_link'>
+            <a href='/#'>{icons.instagram}</a>
+          </li>
+        </ul>
+      </div>
     </footer>
   );
 }
