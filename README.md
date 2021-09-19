@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://www.frontendmentor.io/solutions/responsive-url-shortening-site-using-react-scss-api-4Di8Dh_Xz
 - Live Site URL: http://kingwell47.github.io/url-shortnening
 
 ## My process
