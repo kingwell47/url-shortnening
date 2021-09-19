@@ -221,14 +221,15 @@
   }
 
   &__title {
-    font-size: clamp(fnc.rem(40), 5vw, fnc.rem(80));
+    font-size: clamp(fnc.rem(40), 6vw, fnc.rem(80));
     color: var(--color-neutral-300);
   }
 
   &__text {
+    margin: 0 auto;
     max-width: fnc.rem(562);
     margin-top: fnc.rem(16);
-    font-size: clamp(fnc.rem(18), 1.4vw, fnc.rem(22));
+    font-size: clamp(fnc.rem(18), 1.6vw, fnc.rem(22));
     color: var(--color-neutral-200);
     line-height: 1.5;
     @include fnc.breakpoint-up(large) {

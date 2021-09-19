@@ -49,16 +49,18 @@ function Features() {
             statistics dashboard.
           </p>
         </div>
-        {cardContent.map((item, index) => {
-          return (
-            <Card
-              key={index}
-              src={item.src}
-              title={item.title}
-              text={item.text}
-            />
-          );
-        })}
+        <div className='features__card_wrapper'>
+          {cardContent.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                src={item.src}
+                title={item.title}
+                text={item.text}
+              />
+            );
+          })}
+        </div>
       </section>
       <section className='features__cta container'>
         <h2 className='features__cta_title'>Boost your links today</h2>
