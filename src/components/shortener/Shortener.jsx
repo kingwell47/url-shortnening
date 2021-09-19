@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 import Results from "./Results";
 import "./Shortener.scss";
@@ -7,15 +8,19 @@ function Shortener() {
   const [url, setUrl] = useState("");
   const [errorStatus, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [showingResults, setShowingResults] = useState(true);
-
-  const [results, setResults] = useState([
-    {
-      originalUrl: "kingwell47.com",
-      shortUrl: "shortened.io",
-    },
-  ]);
+  const [showingResults, setShowingResults] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  const [results, setResults] = useLocalStorage("results", []);
   const currentUrl = useRef("");
+
+  //TODO: Local Storage for shortenend links!
+
+  useEffect(() => {
+    if (localStorage.getItem("results") === null) return;
+    const data = localStorage.getItem("results");
+    setResults(JSON.parse(data));
+    setShowingResults(true);
+  }, []);
 
   const handleChange = (e) => {
     if (e.target.value === undefined) {
@@ -34,6 +39,7 @@ function Shortener() {
 
   const handleError = (errMessage) => {
     setError(true);
+    setProcessing(false);
     if (errMessage === undefined) return setErrorMessage("Please add a link");
     setErrorMessage(errMessage);
   };
@@ -42,6 +48,7 @@ function Shortener() {
     setResults([...results, resObj]);
     setShowingResults(true);
     setError(false);
+    setProcessing(false);
   };
 
   const formatUrl = (originalUrl) => {
@@ -51,6 +58,7 @@ function Shortener() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setProcessing(true);
     if (!validateUrl(url) || url === "") return handleError();
     currentUrl.current = formatUrl(url);
     getShortenenedUrl(currentUrl.current);
@@ -94,7 +102,7 @@ function Shortener() {
             </div>
           </div>
           <button type='submit' className='shortener__button'>
-            Shorten It!
+            {processing ? "Shortening..." : "Shorten It!"}
           </button>
         </form>
       </div>

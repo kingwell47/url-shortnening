@@ -110,8 +110,6 @@
     font-weight: 700;
     color: var(--white);
     cursor: pointer;
-    &.active {
-    }
     @include fnc.breakpoint-up(large) {
       height: fnc.rem(62);
       max-width: fnc.rem(188);
