@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/url-shortnening/static/css/main.12f8caec.chunk.css",
+    "main.css": "/url-shortnening/static/css/main.248410fe.chunk.css",
     "main.js": "/url-shortnening/static/js/main.2471e294.chunk.js",
     "main.js.map": "/url-shortnening/static/js/main.2471e294.chunk.js.map",
     "runtime-main.js": "/url-shortnening/static/js/runtime-main.f4bc6f42.js",
@@ -8,7 +8,7 @@
     "static/js/2.b3efa0a8.chunk.js": "/url-shortnening/static/js/2.b3efa0a8.chunk.js",
     "static/js/2.b3efa0a8.chunk.js.map": "/url-shortnening/static/js/2.b3efa0a8.chunk.js.map",
     "index.html": "/url-shortnening/index.html",
-    "static/css/main.12f8caec.chunk.css.map": "/url-shortnening/static/css/main.12f8caec.chunk.css.map",
+    "static/css/main.248410fe.chunk.css.map": "/url-shortnening/static/css/main.248410fe.chunk.css.map",
     "static/js/2.b3efa0a8.chunk.js.LICENSE.txt": "/url-shortnening/static/js/2.b3efa0a8.chunk.js.LICENSE.txt",
     "static/media/Features.scss": "/url-shortnening/static/media/bg-boost-mobile.4b04bd89.svg",
     "static/media/Shortener.scss": "/url-shortnening/static/media/bg-shorten-mobile.41c34b33.svg",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.f4bc6f42.js",
     "static/js/2.b3efa0a8.chunk.js",
-    "static/css/main.12f8caec.chunk.css",
+    "static/css/main.248410fe.chunk.css",
     "static/js/main.2471e294.chunk.js"
   ]
 }
